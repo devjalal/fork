@@ -1,0 +1,147 @@
+﻿Γû▓ Next.js 16.1.7 (Turbopack)
+
+  Creating an optimized production build ...
+node.exe : Error: 
+Cannot apply unknown 
+utility class 
+`premium-shadow`
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (Error: Cannot   
+  a...premium-shado    
+w`:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+    [2m[at 
+onInvalidCandidate (C:\
+works\fork\node_modules
+\tailwindcss\dist\lib.j
+s:21:1511)][0m
+    [2m[at Ee (C:\work
+s\fork\node_modules\tai
+lwindcss\dist\lib.js:16
+:36740)][0m
+    [2m[at C:\works\fo
+rk\node_modules\tailwin
+dcss\dist\lib.js:21:355
+][0m
+    [2m[at Pr (C:\work
+s\fork\node_modules\tai
+lwindcss\dist\lib.js:3:
+1733)][0m
+    [2m[at _ (C:\works
+\fork\node_modules\tail
+windcss\dist\lib.js:3:1
+377)][0m
+    [2m[at Te (C:\work
+s\fork\node_modules\tai
+lwindcss\dist\lib.js:21
+:172)][0m
+    [2m[at pn (C:\work
+s\fork\node_modules\tai
+lwindcss\dist\lib.js:38
+:294)][0m
+    [2m[at async dn (C
+:\works\fork\node_modul
+es\tailwindcss\dist\lib
+.js:38:631)][0m
+    [2m[at async Xr (C
+:\works\fork\node_modul
+es\@tailwindcss\node\di
+st\index.js:10:3417)][
+0m
+    [2m[at async N (C:
+\works\fork\node_module
+s\@tailwindcss\postcss\
+dist\index.js:10:3979)]
+[0m
+
+> Build error occurred
+Error: Turbopack build 
+failed with 1 errors:
+./src/app/globals.css
+Error evaluating 
+Node.js code
+CssSyntaxError: 
+tailwindcss: C:\works\f
+ork\src\app\globals.css
+:1:1: Cannot apply 
+unknown utility class 
+`premium-shadow`
+    at Input.error (nod
+e_modules/postcss/lib/i
+nput.js:135:16) [C:\wor
+ks\fork\.next\build\chu
+nks\node_modules_fe693d
+f6._.js:4651:22]
+    at Root.error (node
+_modules/postcss/lib/no
+de.js:146:32) [C:\works
+\fork\.next\build\chunk
+s\node_modules_fe693df6
+._.js:928:38]
+    [at Object.Once (C:
+\works\fork\node_module
+s\@tailwindcss\postcss\
+dist\index.js:10:6913)]
+    at async 
+LazyResult.runAsync (no
+de_modules/postcss/lib/
+lazy-result.js:293:11) 
+[C:\works\fork\.next\bu
+ild\chunks\node_modules
+_fe693df6._.js:6214:21]
+    at async transform 
+(turbopack:///[turbopac
+k-node]/transforms/post
+css.ts:70:34) [C:\works
+\fork\.next\build\chunk
+s\[root-of-the-server]_
+_51225daf._.js:146:36]
+    at async run (turbo
+pack:///[turbopack-node
+]/ipc/evaluate.ts:92:23
+) [C:\works\fork\.next\
+build\chunks\[root-of-t
+he-server]__974941ed._.
+js:443:31]
+
+Import trace:
+  Client Component 
+Browser:
+    
+./src/app/globals.css 
+[Client Component 
+Browser]
+    
+./src/app/layout.tsx 
+[Server Component]
+
+
+    at async transform 
+(turbopack:///[turbopac
+k-node]/transforms/post
+css.ts:70:34) [C:\works
+\fork\.next\build\chunk
+s\[root-of-the-server]_
+_51225daf._.js:146:36])
+    at async run (turbo
+pack:///[turbopack-node
+]/ipc/evaluate.ts:92:23
+) [C:\works\fork\.next\
+build\chunks\[root-of-t
+he-server]__974941ed._.
+js:443:31])

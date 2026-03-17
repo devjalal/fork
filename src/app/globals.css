@@ -1,26 +1,34 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #FFF7F3;
+  --color-foreground: #2D2D2D;
+  --color-primary: #FF6B35;
+  --color-secondary: #FFF7F3;
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-poppins);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FFF7F3;
+  --foreground: #2D2D2D;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), serif;
+}
+
+@utility premium-shadow {
+  box-shadow: 0 10px 30px -10px rgba(255, 107, 53, 0.15);
+}
+
+.premium-card {
+  @apply bg-white rounded-3xl premium-shadow overflow-hidden transition-all duration-300;
 }
