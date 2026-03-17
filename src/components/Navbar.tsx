@@ -26,6 +26,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -74,7 +86,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[100] md:hidden bg-white flex flex-col items-center justify-center min-h-screen w-full space-y-8"
+            className="fixed inset-0 z-[100] md:hidden bg-white flex flex-col items-center justify-center min-h-screen w-full space-y-8 overflow-y-auto"
           >
              <button
               onClick={() => setIsOpen(false)}
