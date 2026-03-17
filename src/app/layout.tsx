@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   description: "Premium restaurant serving Momos, Smoothies, Desserts, and Coffee with a modern aesthetic.",
 };
 
+import { Toaster } from "sonner";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${poppins.variable} antialiased`}
       >
+        <Toaster position="top-center" richColors />
         {children}
       </body>
     </html>
