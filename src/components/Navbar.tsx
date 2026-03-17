@@ -55,10 +55,6 @@ export default function Navbar() {
 
         {/* Right Section */}
         <div className="flex items-center space-x-4">
-          <button className="hidden md:flex items-center bg-primary text-white px-6 py-2.5 rounded-full font-medium transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
-            Order Now
-          </button>
-          
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +74,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 md:hidden bg-white flex flex-col items-center justify-center space-y-8"
+            className="fixed inset-0 z-[100] md:hidden bg-white flex flex-col items-center justify-center min-h-screen w-full space-y-8"
           >
              <button
               onClick={() => setIsOpen(false)}
@@ -99,10 +95,6 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-
-            <button className="bg-primary text-white px-8 py-3 rounded-full font-semibold shadow-xl shadow-primary/20">
-              Order Now
-            </button>
           </motion.div>
         )}
       </AnimatePresence>

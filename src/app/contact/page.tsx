@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
-import MobileStickyButton from "@/components/MobileStickyButton";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export const metadata = {
@@ -97,7 +96,6 @@ export default function ContactPage() {
       </section>
 
       <Footer />
-      <MobileStickyButton />
     </main>
   );
 }

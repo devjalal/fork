@@ -1,11 +1,10 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { menuData } from "@/data/menuData";
+import { menuData, MenuItem } from "@/data/menuData";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
-import MobileStickyButton from "@/components/MobileStickyButton";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star, ShoppingBag, ArrowRight } from "lucide-react";
@@ -47,7 +46,7 @@ export default function CategoryPage() {
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {category.items.map((item, index) => (
+          {category.items.map((item: MenuItem, index: number) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
@@ -85,7 +84,6 @@ export default function CategoryPage() {
       </section>
 
       <Footer />
-      <MobileStickyButton />
     </main>
   );
 }

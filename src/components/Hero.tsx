@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -57,10 +58,12 @@ export default function Hero() {
             Momos | Smoothies | Desserts | Coffee
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-            <button className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/30 transition-transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2">
-              <span>View Menu</span>
-              <ArrowRight size={20} />
-            </button>
+            <Link href="/menu" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/30 transition-transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2 cursor-pointer">
+                <span>View Menu</span>
+                <ArrowRight size={20} />
+              </button>
+            </Link>
             {/* <button className="w-full sm:w-auto bg-white text-foreground border-2 border-foreground/5 px-8 py-4 rounded-full font-bold text-lg transition-all hover:bg-foreground/5">
               Learn More
             </button> */}

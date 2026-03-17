@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import MenuSection from "@/components/MenuSection";
 import PopularDishes from "@/components/PopularDishes";
-import MobileStickyButton from "@/components/MobileStickyButton";
 
 export const metadata = {
   title: "Menu | Fork Restaurant",
@@ -21,7 +20,6 @@ export default function MenuPage() {
       <MenuSection />
       <PopularDishes />
       <Footer />
-      <MobileStickyButton />
     </main>
   );
 }
