@@ -15,9 +15,10 @@ export default function ContactPage() {
     setIsPending(true);
 
     const formData = new FormData(e.currentTarget);
-    // Add Web3Forms access key (public key for jalalkp047@gmail.com)
-    // Note: User can get their own key at web3forms.com
-    formData.append("access_key", "06a8e833-2a5b-4e12-870d-0361545625c1"); 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (accessKey) {
+      formData.append("access_key", accessKey);
+    }
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
