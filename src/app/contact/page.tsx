@@ -1,51 +1,37 @@
 "use client";
 
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
-import { Mail, Phone, MapPin, Clock, CheckCircle2 } from "lucide-react";
-import { toast } from "sonner";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+
+const whatsappNumber = "917907343387";
 
 export default function ContactPage() {
-  const [isPending, setIsPending] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setIsPending(true);
 
     const formData = new FormData(e.currentTarget);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-    if (accessKey) {
-      formData.append("access_key", accessKey);
-    }
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const subject = String(formData.get("subject") || "").trim();
+    const message = String(formData.get("message") || "").trim();
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
+    const whatsappMessage = [
+      "New contact message from Fork website",
+      "",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Subject: ${subject}`,
+      "",
+      `Message: ${message}`,
+    ].join("\n");
 
-      const data = await response.json();
-
-      if (data.success) {
-        toast.success("Message sent successfully!", {
-          description: "We'll get back to you shortly.",
-          icon: <CheckCircle2 className="text-green-500" size={20} />,
-        });
-        (e.target as HTMLFormElement).reset();
-      } else {
-        toast.error("Something went wrong.", {
-          description: data.message || "Please try again later.",
-        });
-      }
-    } catch (error) {
-      toast.error("Failed to send message.", {
-        description: "Please check your internet connection.",
-      });
-    } finally {
-      setIsPending(false);
-    }
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   }
 
   return (
@@ -69,7 +55,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">Location</h3>
-                    <p className="text-foreground/60 font-medium">123 Vibe Street, Foodie City, FC 45678</p>
+                    <p className="text-foreground/60 font-medium">malappuram,kerala,india</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -78,7 +64,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">Phone</h3>
-                    <p className="text-foreground/60 font-medium">+1 (234) 567-890</p>
+                    <p className="text-foreground/60 font-medium">+91 7907343387</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -87,7 +73,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">Email</h3>
-                    <p className="text-foreground/60 font-medium">hello@fork.com</p>
+                    <p className="text-foreground/60 font-medium">jalalkp047@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -104,58 +90,58 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="premium-card bg-white p-8 md:p-12">
-            <h2 className="text-3xl font-serif font-bold text-foreground mb-8">Send a Message</h2>
+          {/* WhatsApp Form */}
+          <div className="premium-card bg-white p-8 md:p-12 rounded-[2rem] border border-primary/10">
+            <h2 className="text-3xl font-serif font-bold text-foreground mb-8">Send a WhatsApp Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-foreground/40 uppercase tracking-widest">Full Name</label>
-                  <input 
+                  <input
                     name="name"
-                    type="text" 
+                    type="text"
                     required
-                    className="w-full bg-[#FFF7F3] border-none rounded-2xl p-4 focus:ring-2 focus:ring-primary outline-none" 
-                    placeholder="John Doe" 
+                    className="w-full bg-[#FFF7F3] border border-primary/10 rounded-[1.25rem] px-5 py-4 focus:ring-2 focus:ring-primary outline-none"
+                    placeholder="John Doe"
                   />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-foreground/40 uppercase tracking-widest">Email Address</label>
-                  <input 
+                  <input
                     name="email"
-                    type="email" 
+                    type="email"
                     required
-                    className="w-full bg-[#FFF7F3] border-none rounded-2xl p-4 focus:ring-2 focus:ring-primary outline-none" 
-                    placeholder="john@example.com" 
+                    className="w-full bg-[#FFF7F3] border border-primary/10 rounded-[1.25rem] px-5 py-4 focus:ring-2 focus:ring-primary outline-none"
+                    placeholder="john@example.com"
                   />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-foreground/40 uppercase tracking-widest">Subject</label>
-                <input 
+                <input
                   name="subject"
-                  type="text" 
+                  type="text"
                   required
-                  className="w-full bg-[#FFF7F3] border-none rounded-2xl p-4 focus:ring-2 focus:ring-primary outline-none" 
-                  placeholder="How can we help?" 
+                  className="w-full bg-[#FFF7F3] border border-primary/10 rounded-[1.25rem] px-5 py-4 focus:ring-2 focus:ring-primary outline-none"
+                  placeholder="How can we help?"
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-foreground/40 uppercase tracking-widest">Message</label>
-                <textarea 
+                <textarea
                   name="message"
-                  rows={4} 
+                  rows={4}
                   required
-                  className="w-full bg-[#FFF7F3] border-none rounded-2xl p-4 focus:ring-2 focus:ring-primary outline-none resize-none" 
+                  className="w-full bg-[#FFF7F3] border border-primary/10 rounded-[1.25rem] px-5 py-4 focus:ring-2 focus:ring-primary outline-none resize-none"
                   placeholder="Your message here..."
                 ></textarea>
               </div>
-              <button 
+              <button
                 type="submit"
-                disabled={isPending}
-                className="w-full bg-primary text-white py-4 rounded-2xl font-bold shadow-xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-transform disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed"
+                className="w-full inline-flex items-center justify-center gap-3 bg-primary text-white py-4 rounded-[1.25rem] font-bold shadow-xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-transform"
               >
-                {isPending ? "Sending..." : "Send Message"}
+                <Send size={20} />
+                Send on WhatsApp
               </button>
             </form>
           </div>

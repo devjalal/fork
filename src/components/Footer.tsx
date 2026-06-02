@@ -44,15 +44,15 @@ export default function Footer() {
             <ul className="space-y-4 text-foreground/60 font-medium">
               <li className="flex items-center space-x-3">
                 <MapPin size={18} className="text-primary" />
-                <span>123 Vibe Street, Foodie City</span>
+                <span>malappuram,kerala,india</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-primary" />
-                <span>+1 (234) 567-890</span>
+                <span>+91 79073433387</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="text-primary" />
-                <span>hello@fork.com</span>
+                <span>forkin@gmail.com</span>
               </li>
             </ul>
           </div>
